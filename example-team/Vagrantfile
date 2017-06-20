@@ -1,0 +1,11 @@
+require 'json'
+require 'etc'
+
+configs = JSON.parse(File.read('configurations.json'))
+user_config = configs[ENV['USER']]
+
+Vagrant.configure("2") do |config|
+	config.vm.box = "agavazov/cent"
+	config.vm.network :public_network, ip: user_config["ip"]
+	config.vm.synced_folder user_config["project_dir"], "/project", type: "virtualbox"
+end

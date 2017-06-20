@@ -1,0 +1,22 @@
+{
+	"aleksandar.gavazov": {
+		"public_key": "D:\\Workspace\\keys\\id_rsa.pub",
+		"network": {
+			"lb": "10.255.255.101",
+			"lb_public": "192.168.1.101",
+			"web1": "10.255.255.102",
+			"web2": "10.255.255.103",
+			"db": "10.255.255.104"
+		}
+	},
+	"ivan.ivanov": {
+		"public_key": "C:\\Users\\ivan.ivanov\\.ssh\\id_rsa.pub",
+		"network": {
+			"lb": "10.255.255.1",
+			"lb_public": "10.0.1.101",
+			"web1": "10.255.255.2",
+			"web2": "10.255.255.3",
+			"db": "10.255.255.4"
+		}
+	}
+}

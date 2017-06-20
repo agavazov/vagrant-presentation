@@ -1,7 +1,7 @@
 var http = require('http');
 var host = require('os').hostname();
 var redis = require('redis');
-var client = redis.createClient('db');
+var client = redis.createClient(6379, 'db');
 
 client.on('error', function (err) {
     console.log('Error ' + err);
@@ -14,7 +14,7 @@ var serve = function(port) {
 		log += 'Access counter ' + count + "\n";
 		log += 'Remote address ' + req.connection.remoteAddress + "\n";
 		if (req.headers['x-forwarded-for']) {
-			log += 'Remote address ' + req.headers['x-forwarded-for'] + "\n";
+			log += 'Real client IP ' + req.headers['x-forwarded-for'] + "\n";
 		}
 
 		res.writeHead(200, {'Content-Type': 'text/plain'});

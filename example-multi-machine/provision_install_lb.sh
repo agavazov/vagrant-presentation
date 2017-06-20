@@ -15,12 +15,7 @@ defaults
     timeout http-keep-alive 10s
     timeout check           10s
     maxconn                 3000
-
-    log     global
-    option  httplog
-    option  dontlognull
-    retries 3
-    option redispatch
+	option forwardfor
 
 frontend http-fe
 	bind *:80
@@ -29,7 +24,6 @@ frontend http-fe
 	default_backend nodes
 
 backend nodes
-    mode tcp
 	balance roundrobin
 	server www-10 web1:80 check
 	server www-20 web2:80 check
